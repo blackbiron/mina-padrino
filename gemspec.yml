@@ -1,0 +1,18 @@
+name: mina-padrino
+summary: mina tasks for padrino
+description:
+  Mina tasks for deploying padrino apps.
+license: MIT
+authors: Postmodern
+email: postmodern.mod3@gmail.com
+homepage: https://github.com/postmodern/mina-padrino#readme
+
+dependencies:
+  mina: ~> 0.3
+
+development_dependencies:
+  bundler: ~> 1.0
+  rake: ~> 0.8
+  rspec: ~> 3.0
+  rubygems-tasks: ~> 0.2
+  yard: ~> 0.8
