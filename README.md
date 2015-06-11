@@ -17,7 +17,7 @@
 
 Mina Task                | Command
 -------------------------|-----------------
-`console`                | `padrino console`
+`padrino:console`        | `padrino console`
 `padrino:db:migrate`     | `rake db:migrate`
 `padrino:db:create`      | `rake db:create`
 `padrino:db:drop`        | `rake db:drop`
