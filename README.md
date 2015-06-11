@@ -11,8 +11,19 @@
 
 ## Features
 
-* Sets `PADRINO_ENV=`
-* Supports `db:migrate`
+* Sets `RACK_ENV=`
+
+### Tasks
+
+Mina Task                | Command
+-------------------------|-----------------
+`console`                | `padrino console`
+`padrino:db:migrate`     | `rake db:migrate`
+`padrino:db:create`      | `rake db:create`
+`padrino:db:drop`        | `rake db:drop`
+`padrino:db:reset`       | `rake db:reset`
+`padrino:db:setup`       | `rake db:setup`
+`padrino:db:seed`        | `rake db:seed`
 
 ## Examples
 
