@@ -37,6 +37,10 @@ Mina Task                | Command
 
     $ gem install mina-padrino
 
+## Gemfile
+
+    gem 'mina-padrino', require: false
+
 ## Copyright
 
 Copyright (c) 2015 Hal Brodigan
