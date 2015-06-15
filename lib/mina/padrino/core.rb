@@ -1,4 +1,5 @@
 require 'mina/bundler'
+require 'mina/padrino/helpers'
 
 # ## Settings
 # Any and all of these settings can be overriden in your `deploy.rb`.
@@ -36,6 +37,8 @@ set_default :padrino, lambda { %{#{bundle_prefix} padrino } }
 namespace :padrino do
   desc "Starts an interactive console."
   task :console => :environment do
-    queue echo_cmd %[cd "#{deploy_to!}/#{current_path!}" && #{padrino} console && exit]
+    in_current_dir do
+      queue echo_cmd %[#{padrino} console]
+    end
   end
 end
