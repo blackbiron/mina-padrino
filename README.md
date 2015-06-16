@@ -29,6 +29,22 @@ Mina Task                | Command
 
     require 'mina/padrino'
 
+    desc "Deploys the current version to the server."
+    task :deploy => :environment do
+      deploy do
+        # Put things that will set up an empty directory into a fully set-up
+        # instance of your project.
+        invoke :'git:clone'
+        invoke :'deploy:link_shared_paths'
+        invoke :'bundle:install'
+        invoke :'deploy:cleanup'
+        invoke :'padrino:db:migrate'
+
+        ...
+      end
+    end
+
+
 ## Requirements
 
 * [mina] ~> 0.3
