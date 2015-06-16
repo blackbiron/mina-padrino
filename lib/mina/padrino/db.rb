@@ -21,7 +21,7 @@ namespace :padrino do
       in_current_dir do
         queue %{
           echo "-----> Migrating database"
-          #{echo_cmd %[#{cd_current} && #{rake} db:migrate]}
+          #{echo_cmd %[#{rake} db:migrate]}
         }
       end
     end
