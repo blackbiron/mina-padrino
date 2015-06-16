@@ -1,3 +1,7 @@
+### 0.1.1 / 2015-06-15
+
+* Fixed a typo in `padrino:db:migrate`.
+
 ### 0.1.0 / 2015-06-15
 
 * Initial release:
