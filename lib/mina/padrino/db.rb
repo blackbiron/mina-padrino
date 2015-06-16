@@ -1,18 +1,5 @@
 require 'mina/padrino/core'
 
-# Macro used later by :rake, etc
-make_run_task = lambda { |name, sample_args|
-  task name, [:arguments] => :environment do |t, args|
-    arguments = args[:arguments]
-    command = send name
-    unless arguments
-      puts %{You need to provide arguments. Try: mina "#{name}[#{sample_args}]"}
-      exit 1
-    end
-    queue echo_cmd %[cd "#{deploy_to!}/#{current_path!}" && #{command} #{arguments}]
-  end
-}
-
 namespace :padrino do
   namespace :db do
     # ### padrino:db:migrate
