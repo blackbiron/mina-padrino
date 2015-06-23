@@ -4,7 +4,7 @@ namespace :padrino do
   namespace :db do
     # ### padrino:db:migrate
     desc "Migrate the database to the latest version"
-    task :migrate do
+    task :migrate => :environment do
       in_current_dir do
         queue %{
           echo "-----> Migrating database"
@@ -15,7 +15,7 @@ namespace :padrino do
 
     namespace :migrate do
       desc "Migrate down using migrations"
-      task :down, [:version] do |t,args|
+      task :down, [:version] => :environment do |t,args|
         task_arg = if args[:version]
                      "[#{args[:version]}]"
                    end
@@ -29,7 +29,7 @@ namespace :padrino do
       end
 
       desc "Migrate up using migrations"
-      task :up, [:version] do |t,args|
+      task :up, [:version] => :environment do |t,args|
         task_arg = if args[:version]
                      "[#{args[:version]}]"
                    end
@@ -45,7 +45,7 @@ namespace :padrino do
 
     # ### padrino:db:create
     desc "Creates the database"
-    task :create do
+    task :create => :environment do
       in_current_dir do
         queue %{
           echo "-----> Creating database"
@@ -56,7 +56,7 @@ namespace :padrino do
 
     # ### padrino:db:drop
     desc "Drop the database (postgres and mysql only)"
-    task :drop do
+    task :drop => :environment do
       in_current_dir do
         queue %{
           echo "-----> Dropping database!"
@@ -67,7 +67,7 @@ namespace :padrino do
 
     # ### padrino:db:reset
     desc "Drop the database, migrate from scratch and initialize with the seed data"
-    task :reset do
+    task :reset => :environment do
       in_current_dir do
         queue %{
           echo "-----> Resetting database!"
@@ -78,7 +78,7 @@ namespace :padrino do
 
     # ### padrino:db:setup
     desc "Create the database migrate and initialize with the seed data"
-    task :setup do
+    task :setup => :environment do
       in_current_dir do
         queue %{
           echo "-----> Setting up database"
@@ -89,7 +89,7 @@ namespace :padrino do
 
     # ### padrino:db:setup
     desc "Load the seed data from db/seeds.rb"
-    task :seed do
+    task :seed => :environment do
       in_current_dir do
         queue %{
           echo "-----> Seeding database"
