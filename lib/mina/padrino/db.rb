@@ -13,6 +13,35 @@ namespace :padrino do
       end
     end
 
+    namespace :migrate do
+      task :down, [:version] do
+        task_arg = if args[:version]
+                     "[#{args[:version]}]"
+                   end
+
+        in_current_dir do
+          queue %{
+            echo "-----> Migrating database down"
+            #{echo_cmd %[#{rake} db:migrate:down#{task_arg}]}
+          }
+        end
+      end
+
+      desc "Migrate up using migrations"
+      task :up, [:version] do |t,args|
+        task_arg = if args[:version]
+                     "[#{args[:version]}]"
+                   end
+
+        in_current_dir do
+          queue %{
+            echo "-----> Migrating database up"
+            #{echo_cmd %[#{rake} db:migrate:up#{task_arg}]}
+          }
+        end
+      end
+    end
+
     # ### padrino:db:create
     desc "Creates the database."
     task :create do

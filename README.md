@@ -15,15 +15,17 @@
 
 ### Tasks
 
-Mina Task                | Command
--------------------------|-----------------
-`padrino:console`        | `padrino console`
-`padrino:db:migrate`     | `rake db:migrate`
-`padrino:db:create`      | `rake db:create`
-`padrino:db:drop`        | `rake db:drop`
-`padrino:db:reset`       | `rake db:reset`
-`padrino:db:setup`       | `rake db:setup`
-`padrino:db:seed`        | `rake db:seed`
+Mina Task                 | Command
+--------------------------|-----------------
+`padrino:console`         | `padrino console`
+`padrino:db:migrate`      | `rake db:migrate`
+`padrino:db:migrate:down` | `rake db:migrate:down`
+`padrino:db:migrate:up`   | `rake db:migrate:up`
+`padrino:db:create`       | `rake db:create`
+`padrino:db:drop`         | `rake db:drop`
+`padrino:db:reset`        | `rake db:reset`
+`padrino:db:setup`        | `rake db:setup`
+`padrino:db:seed`         | `rake db:seed`
 
 ## Examples
 
