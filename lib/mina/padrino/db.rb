@@ -15,7 +15,7 @@ namespace :padrino do
 
     namespace :migrate do
       desc "Migrate down using migrations"
-      task :down, [:version] do
+      task :down, [:version] do |t,args|
         task_arg = if args[:version]
                      "[#{args[:version]}]"
                    end
