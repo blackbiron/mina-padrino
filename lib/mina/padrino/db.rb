@@ -3,7 +3,7 @@ require 'mina/padrino/core'
 namespace :padrino do
   namespace :db do
     # ### padrino:db:migrate
-    desc "Migrates the database."
+    desc "Migrate the database to the latest version"
     task :migrate do
       in_current_dir do
         queue %{
@@ -14,6 +14,7 @@ namespace :padrino do
     end
 
     namespace :migrate do
+      desc "Migrate down using migrations"
       task :down, [:version] do
         task_arg = if args[:version]
                      "[#{args[:version]}]"
@@ -43,7 +44,7 @@ namespace :padrino do
     end
 
     # ### padrino:db:create
-    desc "Creates the database."
+    desc "Creates the database"
     task :create do
       in_current_dir do
         queue %{
@@ -54,7 +55,7 @@ namespace :padrino do
     end
 
     # ### padrino:db:drop
-    desc "Drops the database."
+    desc "Drop the database (postgres and mysql only)"
     task :drop do
       in_current_dir do
         queue %{
@@ -65,7 +66,7 @@ namespace :padrino do
     end
 
     # ### padrino:db:reset
-    desc "Resets the database."
+    desc "Drop the database, migrate from scratch and initialize with the seed data"
     task :reset do
       in_current_dir do
         queue %{
@@ -76,7 +77,7 @@ namespace :padrino do
     end
 
     # ### padrino:db:setup
-    desc "Setup the database."
+    desc "Create the database migrate and initialize with the seed data"
     task :setup do
       in_current_dir do
         queue %{
@@ -87,7 +88,7 @@ namespace :padrino do
     end
 
     # ### padrino:db:setup
-    desc "Seeds the database."
+    desc "Load the seed data from db/seeds.rb"
     task :seed do
       in_current_dir do
         queue %{
